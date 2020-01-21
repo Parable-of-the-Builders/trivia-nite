@@ -3,8 +3,8 @@ const app = express();
 require("dotenv").config();
 const session = require("express-session");
 const { SERVER_PORT, SESSION_SECRET } = process.env;
-const authCtrl = require("./src/server/controller/authController");
-const apiCtrl = require("./src/server/controller/apiController");
+const authCtrl = require("./controller/authController");
+const apiCtrl = require("./controller/apiController");
 
 app.use(express.json());
 
