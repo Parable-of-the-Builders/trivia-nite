@@ -9,13 +9,14 @@ const StandardView = props => {
   useEffect(() => {
     axios
       .get("https://opentdb.com/api.php?amount=1&category=20&encode=url3986")
-      .then(res => props.setQuestions(res.data.results));
+      .then(res => setQuestion(res.data.results));
   }, []);
-  console.log(props.questions);
   function getQuestion() {
-    setQuestion(props.questions[0].question);
+    axios
+      .get("https://opentdb.com/api.php?amount=1&category=20&encode=url3986")
+      .then(res => setQuestion(res.data.results[0].question));
   }
-  console.log(question);
+  // console.log(question);
   return (
     <div className="StandarView-container">
       <button onClick={getQuestion}>Get Question</button>
