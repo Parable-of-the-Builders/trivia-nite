@@ -5,23 +5,23 @@ import { setQuestions } from "../ducks/reducer";
 import "../styles/StandardView.scss";
 
 const StandardView = props => {
-  const [question, setQuestion] = useState("");
+  const [question, setQuestion] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://opentdb.com/api.php?amount=1&category=20&encode=url3986")
-      .then(res => setQuestion(res.data.results));
+    getQuestion();
   }, []);
   function getQuestion() {
     axios
       .get("https://opentdb.com/api.php?amount=1&category=20&encode=url3986")
-      .then(res => setQuestion(res.data.results[0].question));
+      .then(res => setQuestion(res.data.results));
   }
-  // console.log(question);
+  console.log(question);
   return (
     <div className="StandarView-container">
       <button onClick={getQuestion}>Get Question</button>
       <main>
-        {question !== "" && <h3>{decodeURIComponent(question)}</h3>}
+        {question.length !== 0 && (
+          <h3>{decodeURIComponent(question[0].question)}</h3>
+        )}
         <h5>Catetory</h5>
       </main>
       <section>
