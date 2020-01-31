@@ -41,11 +41,6 @@ const StandardView = props => {
             );
           })}
       </main>
-      <section>
-        <select name="" id="">
-          <option value="">Select an Answer</option>
-        </select>
-      </section>
     </div>
   );
 };
