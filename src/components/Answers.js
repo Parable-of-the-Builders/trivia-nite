@@ -2,9 +2,17 @@ import React from "react";
 
 function Answers(props) {
   console.log(props);
+  const { rightAnswer, answers } = props;
   return (
     <div>
-      <h1>Answers Component</h1>
+      {answers.map((answer, index) => {
+        let val = decodeURIComponent(answer);
+        return (
+          <div key={index}>
+            <button value={val}>{decodeURIComponent(answer)}</button>
+          </div>
+        );
+      })}
     </div>
   );
 }
