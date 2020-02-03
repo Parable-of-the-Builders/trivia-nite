@@ -36,6 +36,7 @@ const StandardView = props => {
       <main>
         {question &&
           question.map((val, index) => {
+            console.log(val.correct_answer);
             const rightAnswer = decodeURIComponent(val.correct_answer);
             let answers = [...val.incorrect_answers, val.correct_answer];
             shuffle(answers);
