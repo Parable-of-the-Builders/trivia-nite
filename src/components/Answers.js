@@ -1,5 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
+import "../styles/Answers.scss";
 
 function Answers(props) {
   console.log(props);
@@ -19,7 +20,11 @@ function Answers(props) {
         let val = decodeURIComponent(answer);
         return (
           <div key={index}>
-            <button onClick={() => handleClick(val)} value={val}>
+            <button
+              className="Answer-btn"
+              onClick={() => handleClick(val)}
+              value={val}
+            >
               {decodeURIComponent(answer)}
             </button>
           </div>
