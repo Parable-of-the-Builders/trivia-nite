@@ -4,15 +4,19 @@ import axios from "axios";
 import { setQuestions } from "../ducks/reducer";
 import "../styles/StandardView.scss";
 import Answers from "./Answers";
+import useToggle from "../hooks/useToggle";
 
 const StandardView = props => {
   const [question, setQuestion] = useState([]);
-  // useEffect(() => {
-  //   getQuestion();
-  // }, []);
+  const [toggle, setToggle] = useToggle();
+  const [diff, setDiff] = useState("");
+  useEffect(() => {}, [diff]);
+
   function getQuestion() {
     axios
-      .get("https://opentdb.com/api.php?amount=1&encode=url3986")
+      .get(
+        `https://opentdb.com/api.php?amount=1&difficulty=${diff}&encode=url3986`
+      )
       .then(res => setQuestion(res.data.results));
   }
 
@@ -30,9 +34,16 @@ const StandardView = props => {
     return arr;
   }
   console.log(question);
+  console.log("hit", diff);
   return (
     <div className="StandarView-container">
-      <button onClick={getQuestion}>Get Question</button>
+      <select value={diff} onChange={e => setDiff(e.target.value)}>
+        <option value="easy">Select a Difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      {diff && <button onClick={getQuestion}>Get Question</button>}
       <main>
         {question &&
           question.map((val, index) => {
