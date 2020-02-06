@@ -1,9 +1,9 @@
 import React from "react";
 import Swal from "sweetalert2";
 import "../styles/Answers.scss";
+import axios from "axios";
 
 function Answers(props) {
-  console.log(props);
   const { rightAnswer, answers } = props;
 
   function handleClick(answer) {
