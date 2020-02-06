@@ -43,7 +43,11 @@ const StandardView = props => {
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-      {diff && <button onClick={getQuestion}>Get Question</button>}
+      {diff && (
+        <button className="question-btn" onClick={getQuestion}>
+          Get Question
+        </button>
+      )}
       <main>
         {question &&
           question.map((val, index) => {
