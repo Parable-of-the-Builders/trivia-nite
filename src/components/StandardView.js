@@ -10,6 +10,7 @@ const StandardView = props => {
   const [question, setQuestion] = useState([]);
   const [toggle, setToggle] = useToggle();
   const [diff, setDiff] = useState("");
+
   useEffect(() => {}, [diff]);
 
   function getQuestion() {
