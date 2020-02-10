@@ -1,10 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div>
-      <h1>This is the Nav Bar</h1>
-    </div>
+    <nav className="nav-wrapper">
+      <div className="nav-container">
+        <Link className="nav-link" to="/">
+          Home
+        </Link>
+      </div>
+    </nav>
   );
 };
 export default Nav;

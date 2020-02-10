@@ -15,6 +15,8 @@ function Answers(props) {
       setCount((count += 1));
     } else {
       Swal.fire("Oh No Sorry", "try again", "error");
+      //Setting questions so that Users only gets one try.
+      props.getQuestion();
     }
   }
   console.log(count);
