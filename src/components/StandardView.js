@@ -38,7 +38,11 @@ const StandardView = props => {
   console.log("hit", diff);
   return (
     <div className="StandarView-container">
-      <select value={diff} onChange={e => setDiff(e.target.value)}>
+      <select
+        className="difficulty-dropdown"
+        value={diff}
+        onChange={e => setDiff(e.target.value)}
+      >
         <option value="easy">Select a Difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
