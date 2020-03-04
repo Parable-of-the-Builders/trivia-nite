@@ -7,6 +7,7 @@ function Answers(props) {
   let [count, setCount] = useState(0);
   useEffect(() => {
     sessionStorage.setItem("count", count);
+    document.title = `${count} correct`;
   }, [count]);
   function handleClick(answer) {
     if (answer === rightAnswer) {
