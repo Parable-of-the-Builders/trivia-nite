@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/Nav.scss";
 
 const Nav = () => {
   return (
     <nav className="nav-wrapper">
-      <div className="nav-container">
-        <Link className="nav-link" to="/">
-          Home
-        </Link>
-      </div>
+      <Link className="nav-link" to="/">
+        Home
+      </Link>
+      <Link className="nav-link" to="/standard-view">
+        Free Play
+      </Link>
     </nav>
   );
 };
