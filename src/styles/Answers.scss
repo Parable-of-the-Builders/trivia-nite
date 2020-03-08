@@ -1,5 +1,8 @@
 .Answer-btn {
   color: #494949 !important;
+  animation-name: fallFromTop;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
   text-transform: uppercase;
   text-decoration: none;
   background: #fff;
@@ -19,7 +22,11 @@
 @keyframes fallFromTop {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(-100px);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
