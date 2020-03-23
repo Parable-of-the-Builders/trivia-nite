@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../styles/Answers.scss";
+import axios from "axios";
 
 function Answers(props) {
   const { rightAnswer, answers } = props;
   let [count, setCount] = useState(0);
+  const [photo, setPhoto] = useState();
   useEffect(() => {
     sessionStorage.setItem("count", count);
     document.title = `${count} correct`;
@@ -20,9 +22,21 @@ function Answers(props) {
       props.getQuestion();
     }
   }
-  console.log(count);
+  //! Will Remove just practice with
+  async function getPhoto() {
+    const data = await axios.get(
+      "https://unsplash.com/oauth/authorize",
+      // `${process.env.REACT_APP_UNSPLASH_URL}/photos/random/`,
+      {
+        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`
+      }
+    );
+    console.log(data);
+  }
+  getPhoto();
   return (
     <div>
+      {photo ? <img src={photo} alt="random" /> : null}
       {answers.map((answer, index) => {
         let val = decodeURIComponent(answer);
         return (
