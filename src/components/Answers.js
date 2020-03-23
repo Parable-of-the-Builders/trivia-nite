@@ -25,13 +25,13 @@ function Answers(props) {
   //! Will Remove just practice with
   async function getPhoto() {
     const data = await axios.get(
-      "https://unsplash.com/oauth/authorize",
-      // `${process.env.REACT_APP_UNSPLASH_URL}/photos/random/`,
+      // "https://unsplash.com/oauth/authorize",
+      `${process.env.REACT_APP_UNSPLASH_URL}/photos/random/`,
       {
-        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`
+        headers: { Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}` }
       }
     );
-    console.log(data);
+    console.log(data.data.urls);
   }
   getPhoto();
   return (
